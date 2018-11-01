@@ -13,6 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 
 %{?systemd_requires}
+BuildRequires: systemd
 Requires: bash
 
 
