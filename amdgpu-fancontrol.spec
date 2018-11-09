@@ -1,10 +1,10 @@
-%global commit 3842176fa4cfe72afa47df9c0441d7185027ebfe
+%global commit 3d62533d694ddcf819dcd025292328a0351de15f
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:      amdgpu-fancontrol
 Summary:   Simple tool to control AMD graphics card fan
 Version:   0
-Release:   1.%{shortcommit}%{?dist}
+Release:   2.%{shortcommit}%{?dist}
 License:   GPLv3
 URL:       https://github.com/grmat/amdgpu-fancontrol
 Source0:   https://github.com/grmat/amdgpu-fancontrol/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
@@ -63,6 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/%{name}.cfg
 
 %changelog
+* Fri Nov 09 2018 Lars Kiesow <lkiesow@uos.de> - 0-2.
+- Updated to 3d62533
+
 * Thu Nov 01 2018 Lars Kiesow <lkiesow@uos.de> - 0-1.
 - Initial build
-
