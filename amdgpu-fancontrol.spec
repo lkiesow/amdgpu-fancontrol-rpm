@@ -1,10 +1,10 @@
-%global commit 78de47db22f81341170b0782836570c5384d8476
+%global commit 5461b365fb0810b4766a2d6328a8801d296c701f
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:      amdgpu-fancontrol
 Summary:   Simple tool to control AMD graphics card fan
 Version:   0
-Release:   3.%{shortcommit}%{?dist}
+Release:   4.%{shortcommit}%{?dist}
 License:   GPLv3
 URL:       https://github.com/grmat/amdgpu-fancontrol
 Source0:   https://github.com/grmat/amdgpu-fancontrol/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
@@ -27,7 +27,8 @@ temp/pwm values and hysteresis/interval in the script as desired.
 
 
 %build
-# nothing to do
+# deactivate debug mode
+sed -i 's/^#DEBUG=true$/DEBUG=false/' etc-%{name}.cfg
 
 
 %install
@@ -63,6 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/%{name}.cfg
 
 %changelog
+* Fri Oct 18 2019 Lars Kiesow <lkiesow@uos.de> - 0-4
+- Updated to 5461b36
+- Deactivated debug mode
+
 * Sat Oct 12 2019 Lars Kiesow <lkiesow@uos.de> - 0-3
 - Updated to 78de47d
 
